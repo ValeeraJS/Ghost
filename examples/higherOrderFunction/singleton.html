@@ -1,0 +1,19 @@
+<body>
+	<h2>Open console and click the page to see what happens.</h2>
+</body>
+<script src="../../build/Ghost.min.js"></script>
+<script>
+	/* global Ghost */
+	const A = Ghost.singleton(
+		class {
+			constructor(name) {
+				this.name = name;
+			}
+		}
+	);
+
+	const a = new A("aaaa");
+	const b = new A("bbbb");
+
+	console.log(a, b, a === b);
+</script>

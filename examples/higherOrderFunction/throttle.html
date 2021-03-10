@@ -6,8 +6,8 @@
 	/* global Ghost */
 	document.body.addEventListener(
 		"click",
-		Ghost.debounce(() => {
-			console.log("click debounce");
+		Ghost.throttle(() => {
+			console.log("click throttle");
 		}, 500)
 	);
 </script>

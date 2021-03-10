@@ -1,27 +1,28 @@
 const set = new Set();
 
 interface IAnyObject extends Object {
-    [key: string]: any;
+	[key: string]: any;
 }
 
 const deep = (obj: IAnyObject) => {
-    let propNames = Object.getOwnPropertyNames(obj);
+	const propNames = Object.getOwnPropertyNames(obj);
 
-    propNames.forEach((name: string) => {
-        let prop: any = obj[name];
+	propNames.forEach((name: string) => {
+		const prop: any = obj[name];
 
-        if (typeof prop === 'object' && prop !== null && !set.has(prop)) {
-            set.add(prop);
-            deep(prop);
-        }
-    });
+		if (typeof prop === "object" && prop !== null && !set.has(prop)) {
+			set.add(prop);
+			deep(prop);
+		}
+	});
 
-    return Object.freeze(obj);
-}
+	return Object.freeze(obj);
+};
 
-const freezeDeep = (obj: IAnyObject) => {
-    set.clear();
-    return deep(obj);
-}
+const freezeDeep = (obj: IAnyObject): IAnyObject => {
+	set.clear();
+
+	return deep(obj);
+};
 
 export default freezeDeep;

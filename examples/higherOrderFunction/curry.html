@@ -1,0 +1,16 @@
+<body>
+	<h2>Open console and click the page to see what happens.</h2>
+</body>
+<script src="../../build/Ghost.min.js"></script>
+<script>
+	/* global Ghost */
+	function addOrigin(a, b, c, d, e) {
+		return a + b + c + d + e;
+	}
+
+	const add = Ghost.curry(addOrigin);
+
+	console.log(add(1)(2)(3)(4)(5)());
+	console.log(add(1, 2)(3)(4, 5)());
+	console.log(add(1, 2, 3, 4, 5)());
+</script>

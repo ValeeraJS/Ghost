@@ -1,0 +1,26 @@
+<body>
+	<h2>Open console and click the page to see what happens.</h2>
+</body>
+<script src="../../build/Ghost.min.js"></script>
+<script>
+	/* global Ghost */
+	const a = {
+		data: {
+			key1: 123,
+			key2: {
+				text: "hello world"
+			}
+		},
+		name: "aaaa",
+		type: "string"
+	};
+
+	a.data.circle = a;
+
+	Ghost.freezeDeep(a);
+
+	a.name = "bbb";
+	a.data.key1 = 456;
+	a.newKey = "hello";
+	console.log(a);
+</script>

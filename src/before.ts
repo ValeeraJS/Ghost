@@ -1,6 +1,7 @@
 export default (func: Function, action: Function, ...args: any[]) => {
-    return (...rest: any[]) => {
-        action(...args);
-        return func(...rest);
-    }
-}
+	return (...rest: any[]): any => {
+		action(...args);
+
+		return func(...rest);
+	};
+};
