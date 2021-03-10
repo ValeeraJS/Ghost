@@ -1,0 +1,11 @@
+<body>
+
+</body>
+<script src="../../build/Ghost.js"></script>
+<script>
+
+    document.body.addEventListener('click', Ghost.debounce(() => {
+        console.log('click debounce')
+    }, 500));
+
+</script>
